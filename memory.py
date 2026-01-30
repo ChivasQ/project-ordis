@@ -1,13 +1,21 @@
+import os.path
+
 import chromadb
 from chromadb.utils import embedding_functions
+from sentence_transformers import SentenceTransformer
 import uuid
+
+os.environ['TRANSFORMERS_OFFLINE'] = '1'
+os.environ['HF_HUB_OFFLINE'] = '1'
 
 class OrdisMemory:
     def __init__(self, db_path="./ordis_memory"):
         self.client = chromadb.PersistentClient(path=db_path)
+
         self.embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name="all-MiniLM-L6-v2"
+            model_name=os.path.abspath("models/all-MiniLM-L6-v2")
         )
+
         self.collection = self.client.get_or_create_collection(
             name="chat_history",
             embedding_function=self.embedding_fn
@@ -34,4 +42,3 @@ class OrdisMemory:
 
         context_str = "\n---\n".join(results['documents'][0])
         return context_str
-

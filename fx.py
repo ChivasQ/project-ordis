@@ -1,6 +1,4 @@
-import time
-
-import soundfile as sf
+import numpy as np
 from pedalboard import (
     Pedalboard,
     Distortion,
@@ -56,20 +54,14 @@ class OrdisFX:
             Gain(gain_db=-4.0)
         ])
 
-    def process(self, input_path, output_path, mode="normal"):
+    def process(self, audio_data, mode="normal"):
         try:
-            audio, sample_rate = sf.read(input_path)
-            if len(audio.shape) == 1:
-                pass
-
-            effect_board = self.board_glitch if mode == "glitch" else self.board_clean
-            processed_audio = effect_board(audio, sample_rate)
-
-            sf.write(output_path, processed_audio, sample_rate)
-            print(f"File saved: {output_path} [{mode}]")
+            if audio_data.ndim == 1:
+                audio_data = audio_data[np.newaxis, :]
+            board = self.board_glitch if mode == "glitch" else self.board_clean
+            processed = board(audio_data, 22050)
+            return processed.flatten()
 
         except Exception as e:
             print(f"Error processing audio: {e}")
 
-
-dsp = OrdisFX()

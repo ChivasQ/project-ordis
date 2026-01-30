@@ -3,26 +3,23 @@ import threading
 import queue
 import re
 import sounddevice as sd
-import soundfile as sf
-import os
 import numpy as np
 from piper import PiperVoice, SynthesisConfig
 from memory import OrdisMemory
+from fx import OrdisFX
 
-# --- НАСТРОЙКИ ---
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 voice = PiperVoice.load("onnx-voices/ordis182.onnx")
-MODEL_NAME = 'qwen2.5-7b-instruct'
+MODEL_NAME = 'qwen/qwen3-vl-8b'
 audio_queue = queue.Queue()
 memory = OrdisMemory()
+fx = OrdisFX()
 
 syn_config = SynthesisConfig(
-    volume=0.5,        # Чуть громче
-    length_scale=1.2,  # Скорость 1.2 - это хорошо для Ордиса
-    noise_scale=0.0, # <--- ВЕРНИ СТАНДАРТ! Это даст "воздух" и эмоции
-    noise_w_scale=0.8, # <--- Увеличь! Это даст разную длину звукам (Hmm будет длиннее)
-    normalize_audio=False # Лучше включить, чтобы не было скачков громкости
-)
+    volume=0.7,
+    length_scale=1.2,
+    noise_scale=0.2,
+    noise_w_scale=0.8)
 
 with open("system-prompt.txt", 'r', encoding='utf-8') as f:
     base_system_prompt = f.read()
@@ -44,7 +41,13 @@ def synthesize_text(text):
 
         data_int16 = np.frombuffer(audio_bytes, dtype=np.int16)
         data_float = data_int16.astype(np.float32) / 32768.0
-        return data_float, voice.config.sample_rate
+
+        processed_audio = fx.process(
+            data_float,
+            "normal"
+        )
+
+        return processed_audio, voice.config.sample_rate
     except Exception as e:
         print(f"TTS Error: {e}")
         return None, 0

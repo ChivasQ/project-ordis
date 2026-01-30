@@ -2,7 +2,7 @@ import wave
 from piper import PiperVoice, SynthesisConfig
 import winsound
 
-from test import dsp
+from fx import dsp
 
 voice = PiperVoice.load("onnx-voices/ordis182.onnx")
 
