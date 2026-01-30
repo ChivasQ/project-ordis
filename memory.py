@@ -2,7 +2,6 @@ import os.path
 
 import chromadb
 from chromadb.utils import embedding_functions
-from sentence_transformers import SentenceTransformer
 import uuid
 
 os.environ['TRANSFORMERS_OFFLINE'] = '1'
@@ -22,14 +21,11 @@ class OrdisMemory:
         )
 
     def save_interaction(self, user_text, bot_text):
-        text_to_save = f"Operator: {user_text}\nOrdis: {bot_text}"
-
         self.collection.add(
-            documents=[text_to_save],
-            metadatas=[{"type": "conversation"}],
-            ids=[str(uuid.uuid4())]
+            documents=[user_text, bot_text],
+            metadatas=[{"role": "user"}, {"role": "ordis"}],
+            ids=[f"user_{uuid.uuid4()}", f"ordis_{uuid.uuid4()}"]
         )
-        print(f"💾 [Memory] Saved interaction.")
 
     def get_relevant_context(self, query, n_results=3):
         results = self.collection.query(

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3657614f-9872-43d9-873e-cdcb639e7e40" name="Changes" comment="wow, update!">
+    <list default="true" id="3657614f-9872-43d9-873e-cdcb639e7e40" name="Changes" comment="wow, another update!">
       <change afterPath="$PROJECT_DIR$/fine-tuning/ordis_raw_01.wav" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/fine-tuning/parser/ordis_cleared_chunks/audio_mapping.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/onnx-voices/my_voice.onnx" afterDir="false" />
@@ -12,10 +12,7 @@
       <change afterPath="$PROJECT_DIR$/onnx-voices/ordis182.onnx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/onnx-voices/ordis182.onnx.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memory.py" beforeDir="false" afterPath="$PROJECT_DIR$/memory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordis.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/fx.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769731787900</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="wow, another update!">
+      <option name="closed" value="true" />
+      <created>1769733539688</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1769733539688</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +267,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="HUH" />
     <MESSAGE value="wow, update!" />
-    <option name="LAST_COMMIT_MESSAGE" value="wow, update!" />
+    <MESSAGE value="wow, another update!" />
+    <option name="LAST_COMMIT_MESSAGE" value="wow, another update!" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ordis$main.coverage" NAME="main Coverage Results" MODIFIED="1769014110126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
