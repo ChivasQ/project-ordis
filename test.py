@@ -72,14 +72,4 @@ class OrdisFX:
             print(f"Error processing audio: {e}")
 
 
-if __name__ == "__main__":
-    dsp = OrdisFX()
-    start_time = time.time()
-    dsp.process("input_clean.mp3", "ordis_normal.wav", mode="normal")
-    dsp.process("input_clean.mp3", "ordis_glitch.wav", mode="glitch")
-
-    end_time = time.time()
-    elapsed = end_time - start_time
-
-    print(f"{elapsed:.6f}")
-    pass
+dsp = OrdisFX()

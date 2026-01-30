@@ -4,12 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3657614f-9872-43d9-873e-cdcb639e7e40" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ordis_raw_01.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slicer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slicer2.py" afterDir="false" />
+    <list default="true" id="3657614f-9872-43d9-873e-cdcb639e7e40" name="Changes" comment="HUH">
+      <change afterPath="$PROJECT_DIR$/fine-tuning/ordis_raw_01.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fine-tuning/parser/audio_packer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fine-tuning/parser/audio_unpacker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fine-tuning/parser/metadata.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fine-tuning/parser/ordis_cleared_chunks/audio_mapping.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fine-tuning/parser/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/onnx-voices/my_voice.onnx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/onnx-voices/my_voice.onnx.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/onnx-voices/ordis182.onnx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/onnx-voices/ordis182.onnx.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ordis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/system-prompt.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ordis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ordis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,18 +38,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ChivasQ"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ChivasQ&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ChivasQ/project-ordis.git",
-    "accountId": "774b683b-bca7-48b6-b6eb-c545ea42a591"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ChivasQ/project-ordis.git&quot;,
+    &quot;accountId&quot;: &quot;774b683b-bca7-48b6-b6eb-c545ea42a591&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -49,8 +61,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.audio_packer.executor": "Run",
+    "Python.audio_unpacker.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.ordis.executor": "Run",
     "Python.slicer.executor": "Run",
+    "Python.test (1).executor": "Run",
     "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -59,7 +75,7 @@
     "ai.playground.ignore.import.keys.banner.in.settings": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/uaaut/PycharmProjects/ordis",
+    "last_opened_file_path": "D:/project-ordis/onnx-voices",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,16 +87,64 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project-ordis\onnx-voices" />
+      <recent name="D:\project-ordis\fine-tuning\parser\ordis_cleared_chunks" />
       <recent name="C:\Users\uaaut\PycharmProjects\ordis" />
       <recent name="C:\Users\uaaut\PycharmProjects\ordis\onnx-voices" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project-ordis\fine-tuning" />
       <recent name="D:\project-ordis" />
+      <recent name="D:\project-ordis\onnx-voices" />
+      <recent name="D:\project-ordis\fine-tuning\parser" />
       <recent name="D:\project-ordis\raw_audio" />
-      <recent name="C:\Users\uaaut\PycharmProjects\ordis\onnx-voices" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.slicer">
+  <component name="RunManager" selected="Python.ordis">
+    <configuration name="audio_packer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ordis" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fine-tuning/parser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fine-tuning/parser/audio_packer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="audio_unpacker" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ordis" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fine-tuning/parser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fine-tuning/parser/audio_unpacker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ordis" />
       <option name="ENV_FILES" value="" />
@@ -104,7 +168,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="slicer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="ordis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ordis" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,7 +181,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/slicer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ordis.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,7 +190,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ordis" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -135,12 +199,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fine-tuning/parser" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fine-tuning/parser/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -151,9 +214,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.slicer" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.ordis" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.audio_unpacker" />
+        <item itemvalue="Python.audio_packer" />
       </list>
     </recent_temporary>
   </component>
@@ -177,10 +242,23 @@
       <workItem from="1769006257819" duration="453000" />
       <workItem from="1769013888345" duration="7373000" />
     </task>
+    <task id="LOCAL-00001" summary="HUH">
+      <option name="closed" value="true" />
+      <created>1769034061833</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1769034061833</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="HUH" />
+    <option name="LAST_COMMIT_MESSAGE" value="HUH" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ordis$main.coverage" NAME="main Coverage Results" MODIFIED="1769014110126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
