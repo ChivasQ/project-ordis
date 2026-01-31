@@ -9,8 +9,9 @@ from memory import OrdisMemory
 from fx import OrdisFX
 
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
+
 voice = PiperVoice.load("onnx-voices/ordis182.onnx")
-MODEL_NAME = 'qwen/qwen3-vl-8b'
+MODEL_NAME = 'google/gemma-3n-e4b'
 audio_queue = queue.Queue()
 memory = OrdisMemory()
 fx = OrdisFX()
@@ -31,25 +32,41 @@ messages = [
 def save_background(u_text, a_text):
     memory.save_interaction(u_text, a_text)
 
+
 def synthesize_text(text):
     text = text.strip().replace("*", "")
     if not text: return None, 0
 
     try:
-        stream = voice.synthesize(text, syn_config=syn_config)
-        audio_bytes = b"".join(chunk.audio_int16_bytes for chunk in stream)
+        parts = re.split(r'--', text)
 
-        data_int16 = np.frombuffer(audio_bytes, dtype=np.int16)
-        data_float = data_int16.astype(np.float32) / 32768.0
+        final_audio_chunks = []
+        sample_rate = voice.config.sample_rate
 
-        processed_audio = fx.process(
-            data_float,
-            "normal"
-        )
+        for i, part in enumerate(parts):
+            part = part.strip()
+            if not part: continue
 
-        return processed_audio, voice.config.sample_rate
+            stream = voice.synthesize(part, syn_config=syn_config)
+            audio_bytes = b"".join(chunk.audio_int16_bytes for chunk in stream)
+            data_float = np.frombuffer(audio_bytes, dtype=np.int16).astype(np.float32) / 32768.0
+
+            mode = "glitch" if i == 1 else "normal"
+
+            processed_chunk = fx.process(data_float, mode=mode)
+
+            if processed_chunk is not None:
+                final_audio_chunks.append(processed_chunk)
+
+        if not final_audio_chunks:
+            return None, 0
+
+        # Склеиваем все части в один массив
+        full_audio = np.concatenate(final_audio_chunks)
+        return full_audio, sample_rate
+
     except Exception as e:
-        print(f"TTS Error: {e}")
+        print(f"TTS/FX Error: {e}")
         return None, 0
 
 def audio_player_worker():

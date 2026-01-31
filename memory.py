@@ -22,7 +22,7 @@ class OrdisMemory:
 
     def save_interaction(self, user_text, bot_text):
         self.collection.add(
-            documents=[user_text, bot_text],
+            documents=[f"Operator: {user_text}", f"Ordis: {bot_text}"],
             metadatas=[{"role": "user"}, {"role": "ordis"}],
             ids=[f"user_{uuid.uuid4()}", f"ordis_{uuid.uuid4()}"]
         )
